@@ -9,11 +9,11 @@ public class S2_CharacterMovement : MonoBehaviour
 	[SerializeField] protected float rotateSpeed = 50f;
 	[SerializeField]  float coyoteTime = 2f;
 	[SerializeField] protected float jumpHeight = 2f;
-	private int jumpCount = 0;
 	[SerializeField] protected float timer = 0;
+	[SerializeField] protected float gravityValue = -9.81f;
+	private int jumpCount = 0;
 	private CharacterController controller;
 	private Vector3 playerVelocity = Vector3.zero;
-	private float gravityValue = -9.81f;
 
 	public Vector3 Position => transform.position;
 	public Quaternion Rotation => transform.rotation;

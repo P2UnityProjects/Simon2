@@ -37,7 +37,7 @@ public class S2_GPEGrenade : S2_GPEProjectile
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("tutut");
+  
         
         Destroy(this.gameObject);
 
