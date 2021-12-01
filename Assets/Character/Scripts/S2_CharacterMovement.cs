@@ -25,6 +25,7 @@ public class S2_CharacterMovement : MonoBehaviour
 		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_VERTICAL, MoveVertical);
 		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_HORIZONTAL, MoveHorizontal);
 		S2_InputManager.Instance.BindAction(S2_ButtonEvent.JUMP,Jump);
+		S2_InputManager.Instance.BindAction(S2_ButtonEvent.SHIELD,Shield);
 	}
     private void Update()
     {
@@ -38,6 +39,11 @@ public class S2_CharacterMovement : MonoBehaviour
 
 	}
 
+	void Shield(bool _bool)
+    {
+		if(_bool)
+		Debug.Log("Destiny 2 est une abomination");
+    }
 	void MakeMoveWithCC()  //CC is for CharacterController
     {
 		if (controller.isGrounded && playerVelocity.y < 0)
@@ -50,7 +56,6 @@ public class S2_CharacterMovement : MonoBehaviour
 		controller.Move(playerVelocity * Time.deltaTime);
 
 	}
-
 
 	//   void MoveVertical(float _axis)
 	//   {
@@ -74,14 +79,6 @@ public class S2_CharacterMovement : MonoBehaviour
         {
 			jumpCount++;
 			playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-
-			//Rigidbody _myRB = gameObject.GetComponent<Rigidbody>();
-			//if (!_myRB)
-			//{
-			//	Debug.Log("j'(ai pas trouve");
-			//	return;
-			//}
-			//_myRB.AddForce(new Vector3(0, jumpHeight, 0));
 
 		}
     }
