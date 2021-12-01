@@ -10,16 +10,20 @@ public class GPE_Trappe : MonoBehaviour
 
     [SerializeField, Header("Trappe - Components")] Collider trappeCollider = null;
     [SerializeField] S2_TrappeAnimation trappeAnimation = null;
+    [SerializeField] SkinnedMeshRenderer mesh = null;
 
     [SerializeField, Header("Trappe - Settings :"), Range(.1f, 10)] float timeBeforeDrop = 2;
     [SerializeField, Range(.1f, 10)] float timeBeforeReset = 3;
 
+    [SerializeField] Color normalColor = Color.white;
+    [SerializeField] Color contactColor = Color.yellow;
+    [SerializeField] Color dropColor = Color.red;
 
     float trappeTime = 0;
     bool contact = false;
     bool drop = false;
 
-    public bool IsValid => trappeCollider && trappeAnimation;
+    public bool IsValid => trappeCollider && trappeAnimation && mesh;
 
     #endregion
 
@@ -66,6 +70,7 @@ public class GPE_Trappe : MonoBehaviour
         trappeTime = 0;
         drop = true;
         OnDrop?.Invoke();
+        SetTrappeColor(dropColor);
     }
 
     void TrappeReset()
@@ -74,6 +79,13 @@ public class GPE_Trappe : MonoBehaviour
         contact = false;
         drop = false;
         OnReset?.Invoke();
+        SetTrappeColor(normalColor);
+    }
+
+    void SetTrappeColor(Color _color)
+    {
+        if (!IsValid) return;
+        mesh.material.color = _color;
     }
 
     private void OnTriggerStay(Collider other)
@@ -81,6 +93,7 @@ public class GPE_Trappe : MonoBehaviour
         if (!IsValid || contact) return;
         S2_Player _player = other.GetComponent<S2_Player>();
         if (!_player) return;
+        SetTrappeColor(contactColor);
         contact = true;
         OnContact?.Invoke();
         Debug.Log("Trappe : Detect player !");   //TODO Player interaction
