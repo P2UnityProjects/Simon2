@@ -21,7 +21,7 @@ public abstract class S2_CameraBehaviour : MonoBehaviour, IManagedItem<string>
             RotateTo();
         };
     }
-    protected virtual void Update() => OnUpdate?.Invoke();
+    protected virtual void LateUpdate() => OnUpdate?.Invoke();
 
     protected abstract void MoveTo();
     protected abstract void RotateTo();
