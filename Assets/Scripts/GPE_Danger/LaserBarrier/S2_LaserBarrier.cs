@@ -43,7 +43,9 @@ public class S2_LaserBarrier : S2_Danger
     private void OnTriggerStay(Collider other)
     {
         if (!laserActive) return;
-        Debug.Log("Trigger");   //TODO Player interaction
+        S2_Player _player = other.GetComponent<S2_Player>();
+        if (!_player) return;
+        Debug.Log("Laser Barrier : Detect player !");   //TODO Player interaction
     }
 
 

@@ -57,8 +57,9 @@ public class S2_Crusher : S2_Danger
     private void OnTriggerStay(Collider other)
     {
         if (!isCrushing) return;
-        Debug.Log("Trigger");
-        //TODO Player
+        S2_Player _player = other.GetComponent<S2_Player>();
+        if (!_player) return;
+        Debug.Log("Crusher : Detect player !");   //TODO Player interaction
     }
 
     #endregion

@@ -79,8 +79,11 @@ public class GPE_Trappe : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!IsValid || contact) return;
+        S2_Player _player = other.GetComponent<S2_Player>();
+        if (!_player) return;
         contact = true;
         OnContact?.Invoke();
+        Debug.Log("Trappe : Detect player !");   //TODO Player interaction
     }
 
     #endregion
