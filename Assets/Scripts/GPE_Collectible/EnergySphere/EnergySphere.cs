@@ -30,6 +30,13 @@ public class EnergySphere : S2_Collectible
         Destroy(gameObject, .1f);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        S2_Player _player = other.GetComponent<S2_Player>();
+        if (!_player) return;
+        movement.SetTarget(_player.transform);
+    }
+
     #endregion
 
 }
