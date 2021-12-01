@@ -13,15 +13,7 @@ public class S2_GPERocket : S2_GPEProjectile
         RotateToTarget();
     }
 
-    void MoveToTarget()
-    {
-        if (!target)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
-    }
+    void MoveToTarget() => transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
     void RotateToTarget()
     {
         if (!target) return;
