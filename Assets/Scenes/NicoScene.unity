@@ -740,10 +740,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnergySphere
       objectReference: {fileID: 0}
-    - target: {fileID: 1347828772828516840, guid: ed65c5027c7cf6b4e9645c3167fdb25f, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1614658291}
     - target: {fileID: 1347828772828516841, guid: ed65c5027c7cf6b4e9645c3167fdb25f, type: 3}
       propertyPath: m_RootOrder
       value: 8
