@@ -4,14 +4,12 @@ using UnityEngine;
 public class S2_AimingSystem : MonoBehaviour
 {
     #region Fields & Properties
-    public Action<bool> OnTargetAimed = null;
+    public event Action<bool> OnTargetAimed = null;
 
-	[SerializeField] float aimDetectionRate = .1f, aimRange = 10, aimAngle = 90, aimSpeed = 15;
+    [SerializeField] S2_GPEEnnemie owner = null;
+    [SerializeField] float aimDetectionRate = .1f, aimRange = 10, aimAngle = 90, aimSpeed = 15;
 	[SerializeField] LayerMask aimingMask = 0;
-    Transform target = null;
     Vector3 initForward = Vector3.zero;
-
-    public Transform Target => target;
     #endregion
 
     #region Methods
@@ -20,6 +18,8 @@ public class S2_AimingSystem : MonoBehaviour
 
     void Init()
     {
+        owner = GetComponent<S2_GPEEnnemie>();
+
         initForward = transform.forward;
     }
 
@@ -35,6 +35,8 @@ public class S2_AimingSystem : MonoBehaviour
 
     void DetectionBehaviour()
     {
+        if (!owner) return;
+
         Collider[] _colliders = Physics.OverlapSphere(transform.position, aimRange, aimingMask);
         if (_colliders.Length > 0) //if a collider is detected
         {
@@ -44,18 +46,18 @@ public class S2_AimingSystem : MonoBehaviour
 
             if (_angle < aimAngle) //and is in detectionAngle
             {
-                target = _target;
+                owner.SetTarget(_target);
                 AimTarget();
                 OnTargetAimed?.Invoke(true);
                 return;
             }
         }
-        target = null;
+        owner.SetTarget(null);
         OnTargetAimed?.Invoke(false);
     }
     void AimTarget()
     {
-        Vector3 _direction = target.position - transform.position;
+        Vector3 _direction = owner.Target.position - transform.position;
         Quaternion _rotation = Quaternion.LookRotation(_direction);
         if (_direction == Vector3.zero) _rotation = Quaternion.identity;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, _rotation, Time.deltaTime * aimSpeed);

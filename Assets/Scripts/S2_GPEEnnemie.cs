@@ -4,12 +4,14 @@ using UnityEngine;
 public abstract class S2_GPEEnnemie : S2_GPE
 {
 	#region Fields & Properties
-	S2_AimingSystem aimingSystem = null;
-	S2_ShootingSystem shootingSystem = null;
-    int life = 1;
+	protected S2_AimingSystem aimingSystem = null;
+	protected S2_ShootingSystem shootingSystem = null;
+    protected Transform target = null;
+    protected int life = 1;
 
     public S2_AimingSystem AimingSystem => aimingSystem;
     public S2_ShootingSystem ShootingSystem => shootingSystem;
+    public Transform Target => target;
     #endregion
 
     #region Methods
@@ -17,12 +19,14 @@ public abstract class S2_GPEEnnemie : S2_GPE
     {
         Init();
     }
+
     protected void Init()
     {
         aimingSystem = GetComponent<S2_AimingSystem>();
         shootingSystem = GetComponent<S2_ShootingSystem>();
 
-        aimingSystem.OnTargetAimed += shootingSystem.UpdateShootingStatus;
+        //aimingSystem.OnTargetAimed += shootingSystem.UpdateShootingStatus;
     }
+    public void SetTarget(Transform _target) => target = _target;
     #endregion
 }

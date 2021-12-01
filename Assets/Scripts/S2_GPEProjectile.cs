@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class S2_GPEProjectile : MonoBehaviour
+public abstract class S2_GPEProjectile : S2_GPE
 {
-	#region Fields & Properties
+    #region Fields & Properties
+    [SerializeField] protected Transform target = null;
+    #endregion
+
+    #region Methods
+    public void SetTarget(Transform _target) => target = _target;
 	#endregion
-	
-	#region Methods
-	#endregion
-	
 }
