@@ -8,5 +8,10 @@ public abstract class S2_GPEProjectile : S2_GPE
 
     #region Methods
     public void SetTarget(Transform _target) => target = _target;
-	#endregion
+
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        Destroy(this.gameObject);
+    }
+    #endregion
 }

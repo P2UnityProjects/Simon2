@@ -34,14 +34,4 @@ public class S2_GPEGrenade : S2_GPEProjectile
         
         transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * fallSpeed);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("tutut");
-        
-        Destroy(this.gameObject);
-
-    }
-
-   
 }
