@@ -471,11 +471,6 @@ RectTransform:
   m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 1, y: 1}
---- !u!137 &445146778 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 5883756550386583361, guid: c7a92a9ac3f678142874f3c000c0ed44, type: 3}
-  m_PrefabInstance: {fileID: 645397999}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &561408415
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,11 +624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.64
+      value: -20.77
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalPosition.z
@@ -641,19 +636,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.5262867
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.8503072
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -661,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -116.49
       objectReference: {fileID: 0}
     - target: {fileID: 621523374912091214, guid: aaa56511e14de554a86bd6f0bdcd7b94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -690,7 +685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1413391925651874169, guid: c7a92a9ac3f678142874f3c000c0ed44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 1413391925651874169, guid: c7a92a9ac3f678142874f3c000c0ed44, type: 3}
       propertyPath: m_LocalPosition.z
@@ -724,10 +719,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1447864445349559344, guid: c7a92a9ac3f678142874f3c000c0ed44, type: 3}
-      propertyPath: mesh
-      value: 
-      objectReference: {fileID: 445146778}
     - target: {fileID: 1789812357951847363, guid: c7a92a9ac3f678142874f3c000c0ed44, type: 3}
       propertyPath: m_Name
       value: GPE_Trappe
