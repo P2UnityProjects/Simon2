@@ -16,7 +16,7 @@ public class S2_Tapis : MonoBehaviour
         player = _player;
     }
     private void OnTriggerExit(Collider other)
-    {
+    {        
         S2_Player _player = other.GetComponent<S2_Player>();
         if (!_player) return;
         player = null;
