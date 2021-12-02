@@ -9,6 +9,7 @@ public class GPE_Trappe : MonoBehaviour
     #region Fields&Properties
 
     [SerializeField, Header("Trappe - Components")] Collider trappeCollider = null;
+    [SerializeField] Collider trappeCollision = null;
     [SerializeField] S2_TrappeAnimation trappeAnimation = null;
     [SerializeField] SkinnedMeshRenderer mesh = null;
 
@@ -23,7 +24,7 @@ public class GPE_Trappe : MonoBehaviour
     bool contact = false;
     bool drop = false;
 
-    public bool IsValid => trappeCollider && trappeAnimation && mesh;
+    public bool IsValid => trappeCollider && trappeCollision && trappeAnimation && mesh;
 
     #endregion
 
@@ -59,7 +60,7 @@ public class GPE_Trappe : MonoBehaviour
     }
     void UpdateReset()
     {
-        if (!drop) return;
+        if (!drop || !IsValid) return;
         trappeTime += Time.deltaTime;
         if (trappeTime > timeBeforeReset)
             TrappeReset();
@@ -67,6 +68,8 @@ public class GPE_Trappe : MonoBehaviour
 
     void TrappeDrop()
     {
+        if (!IsValid) return;
+        trappeCollision.enabled = false;
         trappeTime = 0;
         drop = true;
         OnDrop?.Invoke();
@@ -75,6 +78,8 @@ public class GPE_Trappe : MonoBehaviour
 
     void TrappeReset()
     {
+        if (!IsValid) return;
+        trappeCollision.enabled = true;
         trappeTime = 0;
         contact = false;
         drop = false;

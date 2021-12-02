@@ -10,7 +10,7 @@ public class S2_MovablePlatformMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 20, goalDist = 0.1f;
     [SerializeField] bool moveToGoal = true, isMoving = false;
 
-    //[SerializeField] S2_Player player = null;
+    [SerializeField] S2_Player player = null;
 
     public bool IsValid => target;
     public Vector3 CurrentPosition => transform.position;
@@ -64,6 +64,12 @@ public class S2_MovablePlatformMovement : MonoBehaviour
     {
         player = other.GetComponent<S2_Player>();
         if (!player) return;
-        //gameObject.transform.DetachChildren();
+        Debug.Log("uwu");
+        Transform _playerTrans = player.transform;
+        Vector3 _offset = _playerTrans.position;
+        Debug.Log(_offset);
+        //_playerTrans.parent = null;
+        gameObject.transform.DetachChildren();
+        player.transform.position = CurrentPosition + _offset;
     }*/
 }
