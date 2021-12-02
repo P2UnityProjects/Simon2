@@ -19,7 +19,7 @@ public class S2_DeathCountUI : MonoBehaviour
     void InitDeathUI()
     {
         if (!IsValid) return;
-
+        S2_World.Instance.Player.OnDamaged += AddDeath;
     }
 
     public void AddDeath()

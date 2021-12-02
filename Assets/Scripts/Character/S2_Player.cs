@@ -8,6 +8,7 @@ public class S2_Player : MonoBehaviour
 
     [SerializeField] S2_CharacterMovement movement = null;
     [SerializeField] S2_CharacterCounter counter = null;
+    [SerializeField] S2_ActivableUI activableUI = null;
 
     [SerializeField] S2_Checkpoint checkpoint = null;
 
@@ -21,6 +22,8 @@ public class S2_Player : MonoBehaviour
     {
         movement = GetComponent<S2_CharacterMovement>();
         counter = GetComponent<S2_CharacterCounter>();
+
+        if (activableUI) activableUI.InitInput();
     }
 
     public void GetDamaged()
