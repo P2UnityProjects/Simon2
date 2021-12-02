@@ -26,7 +26,7 @@ public class S2_LaserBarrier : S2_Danger
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
-        Gizmos.color = (laserActive ? Color.red : Color.white) - new Color(0, 0, 0, .8f);
+        Gizmos.color = (laserActive && isActive ? Color.red : Color.white) - new Color(0, 0, 0, .8f);
         Gizmos.DrawCube(laserCollider.bounds.center, laserCollider.bounds.size);
     }
 
@@ -42,7 +42,7 @@ public class S2_LaserBarrier : S2_Danger
 
     private void OnTriggerStay(Collider other)
     {
-        if (!laserActive) return;
+        if (!laserActive || !isActive) return;
         S2_Player _player = other.GetComponent<S2_Player>();
         if (!_player) return;
         Debug.Log("Laser Barrier : Detect player !");   //TODO Player interaction
