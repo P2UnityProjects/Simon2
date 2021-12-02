@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class S2_CameraTPS : S2_CameraBehaviour
 {
+    [SerializeField] CameraSettings settings = new CameraSettings();
+
+    public CameraSettings Settings => settings;
 
     protected override Vector3 GetPosition()
     {
