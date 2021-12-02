@@ -10,7 +10,6 @@ public class S2_CollectibleManager : S2_Singleton<S2_CollectibleManager>
     [SerializeField, Header("Total Collectible : ")] int totalCollectible = 0;
     [SerializeField, Header("Collectible collected : ")] int collectibleCollected = 0;
 
-
     #endregion
 
     #region Methods

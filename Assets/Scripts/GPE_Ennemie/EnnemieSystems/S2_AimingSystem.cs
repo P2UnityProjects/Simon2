@@ -42,7 +42,7 @@ public class S2_AimingSystem : S2_EnnemieSystem
 
             float _angle = GetAngle(initForward, _target.position - transform.position.normalized);
 
-            Debug.Log(_angle); //! angle stays at 90°
+           // Debug.Log(_angle); //! angle stays at 90°
 
             if (_angle < aimAngle)
             {
