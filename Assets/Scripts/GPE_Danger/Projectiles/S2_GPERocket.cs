@@ -42,7 +42,7 @@ public class S2_GPERocket : S2_GPEProjectile
             if (!_go) return;
             S2_Player _player = _go.GetComponent<S2_Player>();
             if (!_player) return;
-            Destroy(_player);
+            _player.GetDamaged();
             Destroy(this.gameObject);
         }
        else if (isCountered)
