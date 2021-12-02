@@ -25,10 +25,12 @@ public class S2_CharacterCounter : MonoBehaviour
          
                 // if (!_hit) return;
                 GameObject _gameO = touchtab[i].transform.gameObject;
-            if (!_gameO) return;
-            S2_GPEProjectile _proj = _gameO.GetComponent<S2_GPEProjectile>();
-            if (!_proj) return;
-            _proj.SetTarget(_proj.GetLauncher().transform);
+                if (!_gameO) return;
+                  S2_GPERocket _proj = _gameO.GetComponent<S2_GPERocket>();
+                if (!_proj) return;
+                _proj.SetTarget(_proj.GetLauncher().transform);
+                _proj.SetIsCountered(true);
+
            
 
             }
