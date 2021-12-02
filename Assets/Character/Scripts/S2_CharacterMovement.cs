@@ -15,6 +15,7 @@ public class S2_CharacterMovement : MonoBehaviour
 	private CharacterController controller;
 	private Vector3 playerVelocity = Vector3.zero;
 
+	public CharacterController Controller => controller;
 	public Vector3 Position => transform.position;
 	public Quaternion Rotation => transform.rotation;
 
