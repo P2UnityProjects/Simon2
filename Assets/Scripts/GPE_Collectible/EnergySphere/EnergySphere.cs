@@ -6,6 +6,8 @@ public class EnergySphere : S2_Collectible
 
     [SerializeField, Header("EnergySphere - Components :")] ES_Movement movement = null;
 
+    [SerializeField, Header("EnergySphere - Settings :")] bool shouldRegister = true;
+
     bool collected = false;
 
     public ES_Movement Movement => movement;
@@ -20,7 +22,8 @@ public class EnergySphere : S2_Collectible
     {
         if (!IsValid) return;
         movement.OnNearTarget += GetCollected;
-        S2_CollectibleManager.Instance?.AddCollectible();
+        if (shouldRegister)
+            S2_CollectibleManager.Instance?.AddCollectible();
     }
     protected override void GetCollected()
     {
