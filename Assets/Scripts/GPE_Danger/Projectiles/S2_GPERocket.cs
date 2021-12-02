@@ -4,11 +4,12 @@ public class S2_GPERocket : S2_GPEProjectile
 {
     #region Fields & Properties
     [SerializeField] float moveSpeed = 10, rotateSpeed = 1000;
+    [SerializeField] bool isCountered = false;
 
     #endregion
 
     #region Methods
-
+    public void SetIsCountered(bool _status) => isCountered = _status;
     private void Update()
     {
         MoveToTarget();
@@ -35,9 +36,21 @@ public class S2_GPERocket : S2_GPEProjectile
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject _go = other.transform.gameObject;
-        if (!_go) return;
-        Destroy(_go);
+        if(!isCountered)
+        {
+            GameObject _go = other.transform.gameObject;
+            if (!_go) return;
+            S2_Player _player = _go.GetComponent<S2_Player>();
+            if (!_player) return;
+            Destroy(_player);
+            Destroy(this.gameObject);
+        }
+       else if (isCountered)
+        {
+            GameObject _go = other.transform.gameObject;
+            if (!_go) return;
+            Destroy(_go);
+        }
     }
 
 }

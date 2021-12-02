@@ -22,8 +22,6 @@ public class S2_CharacterMovement : MonoBehaviour
 	protected virtual void Start()
 	{
 		controller = gameObject.GetComponent<CharacterController>();
-		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_VERTICAL, MoveVertical);
-		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_HORIZONTAL, MoveHorizontal);
 		S2_InputManager.Instance.BindAction(S2_ButtonEvent.JUMP,Jump);
 	}
     private void Update()
@@ -47,23 +45,9 @@ public class S2_CharacterMovement : MonoBehaviour
 		controller.Move(move * Time.deltaTime * moveSpeed);
 		playerVelocity.y += gravityValue * Time.deltaTime;
 		controller.Move(playerVelocity * Time.deltaTime);
+		
 
 	}
-
-	//   void MoveVertical(float _axis)
-	//   {
-	//	if (!canMove) return;
-	//	transform.position -= transform.right * Time.deltaTime * _axis * moveSpeed;
-
-
-	//}
-
-	//void MoveHorizontal(float _axis)
-	//   {
-	//	if (!canMove) return;
-	//	transform.position -= transform.up * Time.deltaTime * _axis * moveSpeed;
-
-	//}
 
 	void Jump(bool _bool)
     {
@@ -71,8 +55,8 @@ public class S2_CharacterMovement : MonoBehaviour
 		if (_bool && jumpCount<2 )
         {
 			jumpCount++;
-			playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-
+			playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+			Debug.Log(controller.velocity);
 		}
     }
 	
