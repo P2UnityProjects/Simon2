@@ -29,7 +29,8 @@ public class S2_Player : MonoBehaviour
         if (checkpoint)
         {
             checkpoint.UseCheckPoint();
-            transform.position = checkpoint.CheckPointPosition;
+            Debug.Log("GetDamaged");
+            transform.position = checkpoint.transform.position;
         }
     }
 
