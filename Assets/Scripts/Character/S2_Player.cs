@@ -23,7 +23,7 @@ public class S2_Player : MonoBehaviour
     {
         movement = GetComponent<S2_CharacterMovement>();
         counter = GetComponent<S2_CharacterCounter>();
-        counter.OnAttack += playerAnim.UpdateAttackAnimatorParam;
+      //  counter.OnAttack += playerAnim.UpdateAttackAnimatorParam;
 
         if (activableUI) activableUI.InitInput();
     }
