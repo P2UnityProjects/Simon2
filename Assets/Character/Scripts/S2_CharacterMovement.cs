@@ -9,11 +9,11 @@ public class S2_CharacterMovement : MonoBehaviour
 	[SerializeField] protected float rotateSpeed = 50f;
 	[SerializeField]  float coyoteTime = 2f;
 	[SerializeField] protected float jumpHeight = 2f;
-	private int jumpCount = 0;
 	[SerializeField] protected float timer = 0;
+	[SerializeField] protected float gravityValue = -9.81f;
+	private int jumpCount = 0;
 	private CharacterController controller;
 	private Vector3 playerVelocity = Vector3.zero;
-	private float gravityValue = -9.81f;
 
 	public Vector3 Position => transform.position;
 	public Quaternion Rotation => transform.rotation;
@@ -25,7 +25,6 @@ public class S2_CharacterMovement : MonoBehaviour
 		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_VERTICAL, MoveVertical);
 		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_HORIZONTAL, MoveHorizontal);
 		S2_InputManager.Instance.BindAction(S2_ButtonEvent.JUMP,Jump);
-		S2_InputManager.Instance.BindAction(S2_ButtonEvent.SHIELD,Shield);
 	}
     private void Update()
     {
@@ -38,19 +37,13 @@ public class S2_CharacterMovement : MonoBehaviour
 		}
 
 	}
-
-	void Shield(bool _bool)
-    {
-		if(_bool)
-		Debug.Log("Destiny 2 est une abomination");
-    }
 	void MakeMoveWithCC()  //CC is for CharacterController
     {
 		if (controller.isGrounded && playerVelocity.y < 0)
 		{
 			playerVelocity.y = 0f;
 		}
-		Vector3 move = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal"));
+		Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		controller.Move(move * Time.deltaTime * moveSpeed);
 		playerVelocity.y += gravityValue * Time.deltaTime;
 		controller.Move(playerVelocity * Time.deltaTime);
@@ -88,5 +81,10 @@ public class S2_CharacterMovement : MonoBehaviour
 		if (!controller.isGrounded)
 			timer += Time.deltaTime;
     }
-	
+
+
+    private void OnDestroy()
+    {
+		S2_InputManager.Instance.UnBindAction(S2_ButtonEvent.JUMP, Jump);
+	}
 }

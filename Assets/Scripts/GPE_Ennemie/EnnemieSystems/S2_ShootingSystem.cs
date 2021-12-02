@@ -24,10 +24,20 @@ public class S2_ShootingSystem : S2_EnnemieSystem
         if (!owner || !isShooting || !owner.Target) return;
         S2_GPEProjectile _spawned = Instantiate(projectileType, transform.position + spawnLocation, transform.rotation);
         _spawned.SetTarget(owner.Target);
+        _spawned.SetLauncher(this.gameObject);
         spawnedProjectiles.Add(_spawned);
         Debug.Log("shoot!");
     }
 
     public void UpdateShootingStatus(bool _isShooting) => isShooting = _isShooting;
-	#endregion
+
+    private void OnDestroy()
+    {
+        foreach (S2_GPEProjectile item in spawnedProjectiles)
+        {
+            if (!item) continue;
+            Destroy(item.gameObject);
+        }
+    }
+    #endregion
 }
