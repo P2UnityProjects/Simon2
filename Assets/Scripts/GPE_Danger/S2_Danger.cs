@@ -19,7 +19,6 @@ public abstract class S2_Danger : S2_GPE
     virtual protected void OnDestroy()
     {
         OnHitPlayer = null;
-
     }
     virtual protected void OnDrawGizmos()
     {
@@ -29,8 +28,8 @@ public abstract class S2_Danger : S2_GPE
 
     virtual protected void Init()
     {
-        if (!isActive) return;  //To Do
-            //TimerManager.Add(SetActive, timeBeforeActive);
+        if (!isActive)
+            S2_TimerManager.Instance?.AddTimer(timeBeforeActive, SetActive);
     }
 
     protected void SetActive() => isActive = true;
