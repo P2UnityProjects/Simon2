@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class S2_CharacterCounter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] LayerMask toCounterLayer = 0;
+    [SerializeField] float shieldRadius = 5;
+
+    void DetectDangerGPE()
     {
-        
+        bool _hit = Physics.SphereCast(transform.position, shieldRadius, transform.forward, out RaycastHit _hitInfo, 0.1f, toCounterLayer);
+        if (!_hit) return; 
+        S2_GPERocket _rocket = Cast<S2_GPERocket>(_hitInfo.transform.gameObject)
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
