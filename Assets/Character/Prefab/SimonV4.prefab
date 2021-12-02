@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7299143434138619169}
   - component: {fileID: 5622151420278920904}
   - component: {fileID: 3111042173973115674}
+  - component: {fileID: 3499438110209021855}
   m_Layer: 0
   m_Name: SimonV4
   m_TagString: Untagged
@@ -152,5 +153,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toCounterLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   shieldRadius: 5
+--- !u!114 &3499438110209021855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990006147357095905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d61a824fd91b134abc42b1c7e722a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 0}
+  counter: {fileID: 0}

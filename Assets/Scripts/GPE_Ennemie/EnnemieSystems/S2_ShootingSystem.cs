@@ -35,6 +35,7 @@ public class S2_ShootingSystem : S2_EnnemieSystem
     {
         foreach (S2_GPEProjectile item in spawnedProjectiles)
         {
+            if (!item) continue;
             Destroy(item.gameObject);
         }
     }
