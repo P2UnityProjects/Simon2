@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class S2_CharacterCounter : MonoBehaviour
 {
+    public event Action<bool> OnAttack = null;
+
     [SerializeField] LayerMask toCounterLayer = 0;
     [SerializeField] float shieldRadius = 5;
 
@@ -13,6 +16,7 @@ public class S2_CharacterCounter : MonoBehaviour
     }
     void DetectDangerGPE(bool _bool)
     {
+        OnAttack?.Invoke(_bool);
         //bool _hit = false;
         if (_bool)
         {
