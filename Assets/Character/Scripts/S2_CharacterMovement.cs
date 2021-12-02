@@ -50,7 +50,7 @@ public class S2_CharacterMovement : MonoBehaviour
 		{
 			playerVelocity.y = 0f;
 		}
-		Vector3 move = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal"));
+		Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		controller.Move(move * Time.deltaTime * moveSpeed);
 		playerVelocity.y += gravityValue * Time.deltaTime;
 		controller.Move(playerVelocity * Time.deltaTime);

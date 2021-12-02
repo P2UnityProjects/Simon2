@@ -10,8 +10,9 @@ public class S2_CharacterCounter : MonoBehaviour
     void DetectDangerGPE()
     {
         bool _hit = Physics.SphereCast(transform.position, shieldRadius, transform.forward, out RaycastHit _hitInfo, 0.1f, toCounterLayer);
-        if (!_hit) return; 
-        S2_GPERocket _rocket = Cast<S2_GPERocket>(_hitInfo.transform.gameObject)
+        if (!_hit) return;
+        GameObject _gameO = _hitInfo.transform.gameObject;
+       // S2_GPEProjectile _proj = _gameO as S2_GPEProjectile;
 
     }
 

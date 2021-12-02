@@ -4,9 +4,11 @@ public class S2_GPERocket : S2_GPEProjectile
 {
     #region Fields & Properties
     [SerializeField] float moveSpeed = 10, rotateSpeed = 1000;
+
     #endregion
 
     #region Methods
+
     private void Update()
     {
         MoveToTarget();
