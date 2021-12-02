@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2251948465104016009}
   - component: {fileID: 2251948465104016008}
   - component: {fileID: 2216014134219981144}
+  - component: {fileID: 5093037010316490999}
   m_Layer: 0
   m_Name: MovablePlatform
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
   goalDist: 0.1
   moveToGoal: 1
   isMoving: 0
+  player: {fileID: 0}
 --- !u!114 &2251948465104016009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +139,19 @@ MonoBehaviour:
   movablePlatformMovement: {fileID: 0}
   movablePlatformBehaviour: {fileID: 0}
 --- !u!65 &2216014134219981144
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2251948465104016011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.097149, y: 2.6616695, z: 0.6233736}
+  m_Center: {x: -0.0030190945, y: 0.021844387, z: 0.30261767}
+--- !u!65 &5093037010316490999
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

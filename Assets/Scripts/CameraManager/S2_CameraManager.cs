@@ -9,6 +9,7 @@ public class S2_CameraManager : S2_Singleton<S2_CameraManager>, IManager<string,
 
     public void Add(S2_CameraBehaviour _item)
     {
+        if (!_item) return;
         string _id = _item.ID.ToLower();
         if (Exist(_item) || string.IsNullOrEmpty(_id)) return;
         managedItems.Add(_id, _item);
@@ -30,6 +31,14 @@ public class S2_CameraManager : S2_Singleton<S2_CameraManager>, IManager<string,
     {
         if (!Exist(_id)) return null;
         return managedItems[_id.ToLower()];
+    }
+    public S2_CameraBehaviour GetFirstCamera()
+    {
+        foreach (KeyValuePair<string, S2_CameraBehaviour> _item in managedItems)
+        {
+            return _item.Value;
+        }
+        return null;
     }
     public void Remove(string _id)
     {
