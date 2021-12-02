@@ -25,7 +25,6 @@ public class S2_CharacterMovement : MonoBehaviour
 		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_VERTICAL, MoveVertical);
 		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_HORIZONTAL, MoveHorizontal);
 		S2_InputManager.Instance.BindAction(S2_ButtonEvent.JUMP,Jump);
-		S2_InputManager.Instance.BindAction(S2_ButtonEvent.SHIELD,Shield);
 	}
     private void Update()
     {
@@ -38,12 +37,6 @@ public class S2_CharacterMovement : MonoBehaviour
 		}
 
 	}
-
-	void Shield(bool _bool)
-    {
-		if(_bool)
-		Debug.Log("Destiny 2 est une abomination");
-    }
 	void MakeMoveWithCC()  //CC is for CharacterController
     {
 		if (controller.isGrounded && playerVelocity.y < 0)
