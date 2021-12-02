@@ -59,6 +59,8 @@ public class S2_Crusher : S2_Danger
         if (!isCrushing) return;
         S2_Player _player = other.GetComponent<S2_Player>();
         if (!_player) return;
+        _player.GetDamaged();
+
         Debug.Log("Crusher : Detect player !");   //TODO Player interaction
     }
 

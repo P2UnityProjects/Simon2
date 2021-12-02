@@ -45,6 +45,7 @@ public class S2_LaserBarrier : S2_Danger
         if (!laserActive || !isActive) return;
         S2_Player _player = other.GetComponent<S2_Player>();
         if (!_player) return;
+        _player.GetDamaged();
         Debug.Log("Laser Barrier : Detect player !");   //TODO Player interaction
     }
 
