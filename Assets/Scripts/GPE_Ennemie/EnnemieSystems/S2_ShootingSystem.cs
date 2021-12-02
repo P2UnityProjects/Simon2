@@ -30,5 +30,13 @@ public class S2_ShootingSystem : S2_EnnemieSystem
     }
 
     public void UpdateShootingStatus(bool _isShooting) => isShooting = _isShooting;
-	#endregion
+
+    private void OnDestroy()
+    {
+        foreach (S2_GPEProjectile item in spawnedProjectiles)
+        {
+            Destroy(item.gameObject);
+        }
+    }
+    #endregion
 }

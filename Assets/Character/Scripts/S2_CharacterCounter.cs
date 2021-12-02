@@ -16,20 +16,20 @@ public class S2_CharacterCounter : MonoBehaviour
         //bool _hit = false;
         if (_bool)
         {
-            Debug.Log("tututu");
+       
             //_hit = Physics.SphereCast(transform.position, shieldRadius, transform.forward, out RaycastHit _hitInfo, 0.1f, toCounterLayer);
             Collider[] touchtab = Physics.OverlapSphere(transform.position, shieldRadius, toCounterLayer);
             if (touchtab.Length == 0) return;
             for (int i = 0; i < touchtab.Length; i++)
             {
-                Debug.Log("tututu1");
+         
                 // if (!_hit) return;
                 GameObject _gameO = touchtab[i].transform.gameObject;
             if (!_gameO) return;
             S2_GPEProjectile _proj = _gameO.GetComponent<S2_GPEProjectile>();
             if (!_proj) return;
             _proj.SetTarget(_proj.GetLauncher().transform);
-            Debug.Log("tututu2");
+           
 
             }
         }
@@ -38,6 +38,11 @@ public class S2_CharacterCounter : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, shieldRadius);
+    }
+
+    private void OnDestroy()
+    {
+        S2_InputManager.Instance.UnBindAction(S2_ButtonEvent.SHIELD, DetectDangerGPE);
     }
 
 }

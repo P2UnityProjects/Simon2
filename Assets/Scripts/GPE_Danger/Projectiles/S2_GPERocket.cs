@@ -15,7 +15,11 @@ public class S2_GPERocket : S2_GPEProjectile
         RotateToTarget();
     }
 
-    void MoveToTarget() => transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
+    void MoveToTarget()
+    {
+        if (!target) return;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
+    }
     void RotateToTarget()
     {
         if (!target) return;
@@ -28,5 +32,12 @@ public class S2_GPERocket : S2_GPEProjectile
         transform.rotation = Quaternion.RotateTowards(transform.rotation, _rotation, Time.deltaTime * rotateSpeed);
     }
     #endregion
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GameObject _go = other.transform.gameObject;
+        if (!_go) return;
+        Destroy(_go);
+    }
 
 }

@@ -81,5 +81,10 @@ public class S2_CharacterMovement : MonoBehaviour
 		if (!controller.isGrounded)
 			timer += Time.deltaTime;
     }
-	
+
+
+    private void OnDestroy()
+    {
+		S2_InputManager.Instance.UnBindAction(S2_ButtonEvent.JUMP, Jump);
+	}
 }
