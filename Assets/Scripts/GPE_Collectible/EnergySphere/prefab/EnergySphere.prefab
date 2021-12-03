@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectRange: 0.2
-  speed: 2
-  speedIncrease: 1
+  speed: 10
+  speedIncrease: 3
   target: {fileID: 0}
 --- !u!136 &2096438795481843070
 CapsuleCollider:
@@ -75,8 +75,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1.2
+  m_Radius: 1
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: -0.3}
 --- !u!1001 &8787383291058643227

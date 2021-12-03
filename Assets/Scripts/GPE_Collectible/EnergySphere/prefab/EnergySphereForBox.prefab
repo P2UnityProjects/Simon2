@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectRange: 0.2
-  speed: 2
-  speedIncrease: 1
+  speed: 10
+  speedIncrease: 3
   target: {fileID: 0}
 --- !u!136 &4222175346465246384
 CapsuleCollider:

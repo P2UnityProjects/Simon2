@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3020707965448918854}
   - component: {fileID: 3020707965448918853}
-  - component: {fileID: 3020707965448918855}
+  - component: {fileID: 1206346128272896669}
   m_Layer: 8
   m_Name: CollectibleBox
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3020707965448918852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.75, y: 0, z: -7.36}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 3341966274839128266}
   m_Father: {fileID: 0}
@@ -48,18 +48,18 @@ MonoBehaviour:
   collectibleType: {fileID: 7852383507612381223, guid: 6d12fef2f0d591545a44cdeacd9c54a7, type: 3}
   collectibleCount: 5
   spawnRadius: 1.5
---- !u!135 &3020707965448918855
-SphereCollider:
+--- !u!65 &1206346128272896669
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3020707965448918852}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.4, y: 0.4, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3020707964490239777
 PrefabInstance:

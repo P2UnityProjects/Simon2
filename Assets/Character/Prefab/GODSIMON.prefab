@@ -1008,9 +1008,7 @@ MonoBehaviour:
   shieldRadius: 5
   toCounterLayer:
     serializedVersion: 2
-    m_Bits: 128
-  shieldMaterial: {fileID: 0}
-  shieldForm: {fileID: 0}
+    m_Bits: 384
 --- !u!114 &4125506309761397088
 MonoBehaviour:
   m_ObjectHideFlags: 0

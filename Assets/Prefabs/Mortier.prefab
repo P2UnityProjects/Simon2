@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aimDetectionRate: 0.1
   aimRange: 10
-  aimAngle: 90
+  aimAngle: 360
   aimSpeed: 300
   aimingMask:
     serializedVersion: 2
