@@ -2,43 +2,38 @@ using UnityEngine;
 
 public class S2_CollectibleBox : MonoBehaviour
 {
-    #region Fields&Properties
-
     [SerializeField, Header("Collectible Box - Settings :")] GameObject collectibleType = null;
     [SerializeField, Range(1, 50)] int collectibleCount = 5;
     [SerializeField, Range(1, 25)] float spawnRadius = 1.5f;
 
 
     public bool IsValid => collectibleType;
-
     public Vector3 Position => transform.position;
 
-    #endregion
-
-    #region Methods
-
     private void Start() => InitCollectibleBox();
-
+    private void OnTriggerEnter(Collider other)
+    {
+        /*S2_Player _player = other.GetComponent<S2_Player>();
+        if (!_player) return;
+        SpawnCollectible(_player);
+        Destroy(gameObject, .1f);*/
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green - new Color(0, 0, 0, .8f);
         Gizmos.DrawSphere(Position, spawnRadius);
     }
 
-    private void OnTriggerEnter(Collider other) //TODO -> Player Attack compo
+    public void DestroyBox(S2_Player _player)
     {
-        S2_Player _player = other.GetComponent<S2_Player>();
-        if (!_player) return;
         SpawnCollectible(_player);
         Destroy(gameObject, .1f);
     }
-
     void InitCollectibleBox()
     {
         if (!IsValid) return;
         S2_CollectibleManager.Instance?.AddCollectible(collectibleCount);
     }
-
     void SpawnCollectible(S2_Player _player)
     {
         for (int i = 0; i < collectibleCount; i++)
@@ -51,5 +46,4 @@ public class S2_CollectibleBox : MonoBehaviour
             _energySphere.Movement.SetTarget(_player.transform);
         }
     }
-    #endregion
 }

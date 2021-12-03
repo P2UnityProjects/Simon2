@@ -3,7 +3,7 @@ using System;
 
 public abstract class S2_Danger : S2_GPE
 {
-    public event Action OnHitPlayer = null;
+    //public event Action OnHitPlayer = null; //hiden to avoid warning
     #region Fields&Properties
 
     [SerializeField, Header("GPE Danger - Settings :")] protected bool isActive = true;
@@ -18,7 +18,7 @@ public abstract class S2_Danger : S2_GPE
     virtual protected void Start() => Init();
     virtual protected void OnDestroy()
     {
-        OnHitPlayer = null;
+        // OnHitPlayer = null; //hiden to avoid warning
     }
     virtual protected void OnDrawGizmos()
     {

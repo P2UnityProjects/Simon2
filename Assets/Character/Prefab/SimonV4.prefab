@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5622151420278920904}
   - component: {fileID: 3111042173973115674}
   - component: {fileID: 3499438110209021855}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SimonV4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -169,5 +169,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   counter: {fileID: 0}
-  activableUI: {fileID: 0}
   checkpoint: {fileID: 0}
