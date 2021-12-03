@@ -36,6 +36,7 @@ public class S2_GPERocket : S2_GPEProjectile
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triger Enter");
         if(!isCountered)
         {
             GameObject _go = other.transform.gameObject;
