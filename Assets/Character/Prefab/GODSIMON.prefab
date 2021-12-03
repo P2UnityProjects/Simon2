@@ -1339,9 +1339,9 @@ MonoBehaviour:
   moveSpeed: 10
   rotateSpeed: 2000
   coyoteTime: 2
-  jumpHeight: 2
+  jumpHeight: 1
   timer: 0
-  gravityValue: -9.81
+  gravityValue: -15
   xAxis: 0
   yAxis: 0
   gameCamera: {fileID: 0}
