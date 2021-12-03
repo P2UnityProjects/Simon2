@@ -4,6 +4,8 @@ public class S2_GPERocket : S2_GPEProjectile
 {
     #region Fields & Properties
     [SerializeField] float moveSpeed = 10, rotateSpeed = 1000;
+
+    public bool IsValid => target;
     #endregion
 
     #region Methods
@@ -13,10 +15,14 @@ public class S2_GPERocket : S2_GPEProjectile
         RotateToTarget();
     }
 
-    void MoveToTarget() => transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
+    void MoveToTarget() 
+    {
+        if (!IsValid) return;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
+    }
     void RotateToTarget()
     {
-        if (!target) return;
+        if (!IsValid) return;
         Vector3 _direction = target.position - transform.position;
 
         Quaternion _rotation = Quaternion.identity;
