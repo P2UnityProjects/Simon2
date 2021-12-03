@@ -1060,8 +1060,8 @@ MonoBehaviour:
     moveSpeed: 2
     rotateSpeed: 200
     cameraOrbitOffset:
-      currentAngle: 180
-      goalAngle: 180
+      currentAngle: 90
+      goalAngle: 90
       rayon: 10
       height: 5
     target: {fileID: 1208081218}
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 2046796842}
   cameraOrbitTriggerLinker: {fileID: 0}
-  setSmoothMove: 1
+  setSmoothMove: 0
   setSmoothRotate: 0
   setCurrentAngle: 0
   setGoalAngle: 1

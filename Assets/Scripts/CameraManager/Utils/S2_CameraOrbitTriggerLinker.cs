@@ -41,7 +41,7 @@ public class S2_CameraOrbitTriggerLinker : MonoBehaviour
         float _angleDifference = _goalAngle - cameraOrbit.Settings.CameraOrbitOffset.CurrentAngle;
         if (_angleDifference > 180)
             _goalAngle -= 360;
-        if (_angleDifference < 180)
+        if (_angleDifference < -180)
             _goalAngle += 360;
         cameraOrbit.Settings.CameraOrbitOffset.GoalAngle = _goalAngle;
     }
