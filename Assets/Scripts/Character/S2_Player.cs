@@ -15,6 +15,7 @@ public class S2_Player : MonoBehaviour
 
     public S2_CharacterMovement GetMovementComponent => movement;
     public S2_CharacterCounter GetCounterComponent => counter;
+    public S2_PlayerAnimation PlayerAnim => playerAnim;
 
 
     private void Start() => Init();
