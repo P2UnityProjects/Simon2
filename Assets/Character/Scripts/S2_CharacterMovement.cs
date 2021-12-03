@@ -4,6 +4,8 @@ using System;
 [RequireComponent(typeof(CharacterController))]
 public class S2_CharacterMovement : MonoBehaviour
 {
+	public event Action<bool> OnMoving = null;
+
 	[SerializeField] bool canMove = true;
 	[SerializeField] float moveSpeed = 10f, rotateSpeed = 50f, coyoteTime = 2f, jumpHeight = 2f, timer = 0, gravityValue = -9.81f,
 						   xAxis = 0, yAxis = 0;
@@ -33,6 +35,7 @@ public class S2_CharacterMovement : MonoBehaviour
 	}
     private void OnDestroy()
     {
+		OnMoving = null;
 		S2_InputManager.Instance.UnBindAction(S2_ButtonEvent.JUMP, Jump);
 	}
 
@@ -52,7 +55,9 @@ public class S2_CharacterMovement : MonoBehaviour
 	void RotatePlayer()
     {
 		if (!IsValid) return;
-		if (xAxis == 0 && yAxis == 0) return;
+		bool _isMoving = xAxis != 0 || yAxis != 0;
+		OnMoving?.Invoke(_isMoving);
+		if (!_isMoving) return;
 		Vector3 _direction = (xAxis * CameraFWD) + (yAxis * CameraRight);
 		_direction.y = 0;
 		if (_direction == Vector3.zero) return;
