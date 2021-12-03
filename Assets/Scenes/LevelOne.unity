@@ -35347,7 +35347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6697320082635730744, guid: 7fad43ebbeb46b548aeafde58e66613a, type: 3}
       propertyPath: m_Size.y
-      value: 200
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8284143851882043052, guid: 7fad43ebbeb46b548aeafde58e66613a, type: 3}
       propertyPath: setRayon
