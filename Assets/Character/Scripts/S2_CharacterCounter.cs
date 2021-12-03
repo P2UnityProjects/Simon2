@@ -47,6 +47,7 @@ public class S2_CharacterCounter : MonoBehaviour
     }
     void DetectRocket(Collider _other)
     {
+        Debug.Log("Detected Rocket");
         S2_GPERocket _proj = _other.GetComponent<S2_GPERocket>();
         if (!_proj) return;
         _proj.SetTarget(_proj.GetLauncher().transform);

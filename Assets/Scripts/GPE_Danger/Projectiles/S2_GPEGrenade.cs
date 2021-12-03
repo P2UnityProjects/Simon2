@@ -40,12 +40,14 @@ public class S2_GPEGrenade : S2_GPEProjectile
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.GetComponent<S2_GPEGrenade>()) return;
+
 
         Collider[] touchtab = Physics.OverlapSphere(transform.position, explosionRadius, playerLayer);
-        if (touchtab.Length == 0) Destroy(this.gameObject);
+        Debug.Log($"touchtab size : {touchtab.Length}");
+        //if (touchtab.Length == 0) Destroy(this.gameObject);
         for (int i = 0; i < touchtab.Length; i++)
         {
-
             // if (!_hit) return;
             GameObject _gameO = touchtab[i].transform.gameObject;
             if (!_gameO) return;
