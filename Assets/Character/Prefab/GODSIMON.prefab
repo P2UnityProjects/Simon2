@@ -975,6 +975,7 @@ MonoBehaviour:
   gravityValue: -9.81
   xAxis: 0
   yAxis: 0
+  gameCamera: {fileID: 0}
 --- !u!54 &6432724928543931202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1003,10 +1004,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46c45bc3a0d69f4292db1d8b7b8dfd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  shieldRadius: 5
   toCounterLayer:
     serializedVersion: 2
     m_Bits: 128
-  shieldRadius: 5
+  shieldMaterial: {fileID: 0}
+  shieldForm: {fileID: 0}
 --- !u!114 &4125506309761397088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1636,7 +1640,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2537481852141128526, guid: 5c5b955ee6cd13c4e86ee168d053b590, type: 3}
+  - {fileID: 2100000, guid: 7439ec1b37530494bbfb11127ebdbd07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1661,7 +1665,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 8510070966757657843, guid: 5c5b955ee6cd13c4e86ee168d053b590, type: 3}
+  m_Mesh: {fileID: 8510070966757657843, guid: 0fe26fca6f2a6d34491e32dc22a920ba, type: 3}
   m_Bones:
   - {fileID: 8499580283817631360}
   - {fileID: 1022545839956737333}
