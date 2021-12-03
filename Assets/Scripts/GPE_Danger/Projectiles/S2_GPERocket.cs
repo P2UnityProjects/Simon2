@@ -46,15 +46,13 @@ public class S2_GPERocket : S2_GPEProjectile
             _player.GetDamaged();
             Destroy(this.gameObject);
         }
-       else if (isCountered)
+        else
         {
             GameObject _go = other.transform.gameObject;
             if (!_go) return;
             S2_GPETurret _turret = _go.GetComponent<S2_GPETurret>();
             if (!_turret) return;
-
-
-            Destroy(_turret);
+            Destroy(_go);
         }
     }
 
