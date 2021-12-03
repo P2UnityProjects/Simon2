@@ -49,6 +49,7 @@ public class S2_GPERocket : S2_GPEProjectile
         {
             GameObject _go = other.transform.gameObject;
             if (!_go) return;
+
             Destroy(_go);
         }
     }
