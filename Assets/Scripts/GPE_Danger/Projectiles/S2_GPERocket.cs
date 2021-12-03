@@ -54,6 +54,7 @@ public class S2_GPERocket : S2_GPEProjectile
 
 
             Destroy(_turret.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
