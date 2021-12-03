@@ -9,7 +9,6 @@ public class S2_MovablePlatformMovement : MonoBehaviour
     [SerializeField] Vector3 startPosition = Vector3.zero;
     [SerializeField] float moveSpeed = 20, goalDist = 0.1f;
     [SerializeField] bool moveToGoal = true, isMoving = false;
-
     [SerializeField] S2_Player player = null;
 
     public bool IsValid => target;

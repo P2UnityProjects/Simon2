@@ -6,18 +6,10 @@ public class S2_CollectibleBox : MonoBehaviour
     [SerializeField, Range(1, 50)] int collectibleCount = 5;
     [SerializeField, Range(1, 25)] float spawnRadius = 1.5f;
 
-
     public bool IsValid => collectibleType;
     public Vector3 Position => transform.position;
 
     private void Start() => InitCollectibleBox();
-    private void OnTriggerEnter(Collider other)
-    {
-        /*S2_Player _player = other.GetComponent<S2_Player>();
-        if (!_player) return;
-        SpawnCollectible(_player);
-        Destroy(gameObject, .1f);*/
-    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green - new Color(0, 0, 0, .8f);
