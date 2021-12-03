@@ -7,6 +7,7 @@ public class S2_GPEGrenade : S2_GPEProjectile
     [SerializeField] Vector3 spawnLocationOffset = new Vector3(0, 10, 0);
     [SerializeField] Vector3 spawnLocation = Vector3.zero;
     [SerializeField] Vector3 endLocation = Vector3.zero;
+    [SerializeField] float endLocationMultiplier = 10;
     [SerializeField] float explosionRadius = 3;
     [SerializeField] float fallSpeed = 2;
     [SerializeField] LayerMask playerLayer = 0;
@@ -24,7 +25,7 @@ public class S2_GPEGrenade : S2_GPEProjectile
     {
         spawnLocation = target.position + spawnLocationOffset;
         transform.position = spawnLocation;
-        endLocation = target.position - Vector3.up * 5;
+        endLocation = target.position - Vector3.up * endLocationMultiplier;
     }
 
     void FallOnTarget()
