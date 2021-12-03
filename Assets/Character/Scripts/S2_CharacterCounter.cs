@@ -32,11 +32,9 @@ public class S2_CharacterCounter : MonoBehaviour
     }
     void DetectDangerGPE(bool _bool)
     {
-        OnAttack?.Invoke();
         if (!_bool) return;
-
+        OnAttack?.Invoke();
         Collider[] touchtab = Physics.OverlapSphere(Position, shieldRadius, toCounterLayer);
-        if (touchtab.Length == 0) return;
         for (int i = 0; i < touchtab.Length; i++)
         {
             Collider _collider = touchtab[i];

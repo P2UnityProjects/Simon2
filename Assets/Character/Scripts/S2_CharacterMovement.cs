@@ -53,7 +53,6 @@ public class S2_CharacterMovement : MonoBehaviour
     {
 		if (!IsValid) return;
 		if (xAxis == 0 && yAxis == 0) return;
-		//Vector3 _direction = new Vector3(xAxis * CameraFWD.x, 0, yAxis * CameraRight.z);
 		Vector3 _direction = (xAxis * CameraFWD) + (yAxis * CameraRight);
 		_direction.y = 0;
 		if (_direction == Vector3.zero) return;

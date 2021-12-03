@@ -4,10 +4,10 @@ using UnityEngine;
 [Serializable]
 public class CameraOrbitSettings
 {
-    [SerializeField] bool smoothMove, smoothRotation;
-    [SerializeField] float moveSpeed, rotateSpeed;
-    [SerializeField] CameraOrbitOffset cameraOrbitOffset;
-    [SerializeField] Transform target;
+    [SerializeField] bool smoothMove = false, smoothRotation = false;
+    [SerializeField] float moveSpeed = 0, rotateSpeed = 0;
+    [SerializeField] CameraOrbitOffset cameraOrbitOffset = new CameraOrbitOffset();
+    [SerializeField] Transform target = null;
 
     public bool IsValid => target;
     public bool SmoothMove { get => smoothMove; set => smoothMove = value; }
