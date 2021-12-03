@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6821374181317875708}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RootJNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5152674077890604965}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SubMaster_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8074336408849426172}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back_CTRL_buffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5754877042027909135}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Master_CTRL_buffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947937224334818327}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7350953155705655894}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RootJNT_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,8 +197,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3437113056582293333}
   - component: {fileID: 881945511}
-  - component: {fileID: 4259557863928249421}
-  m_Layer: 7
+  - component: {fileID: 7001003283103083497}
+  - component: {fileID: -5092767096682032927}
+  m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,8 +236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 1000
---- !u!65 &4259557863928249421
-BoxCollider:
+--- !u!136 &7001003283103083497
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -245,9 +246,29 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.7, z: 1.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.36
+  m_Height: 1.4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.05}
+--- !u!95 &-5092767096682032927
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664095447781576175}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2489f5121999d804583428ea66904d28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3832275973391352396
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7001340071989312611}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PRIVATE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8990445016827455634}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GRP_JNT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3923211977355347874}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PUBLIC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3908832398742989026}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SubMaster_CTRL_buffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6076566543145445508}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 373136107609861360}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1940350540316729302}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GRP_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +494,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3641371977824344787}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Front_CTRL_buffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 760861899377469660}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Master_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5135413538170052114}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Front_CTRL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +586,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8856491238587472329}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RootJNT_CTRL_Buffer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,7 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 938072404439553647}
   - component: {fileID: 266628660773836894}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Missile_Low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +658,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: af4ab068a84ac7d4b8e19faea5807dcd, type: 3}
+  - {fileID: 5561349426305759274, guid: f70d7af9a15616b4d8e6e14917f13cd2, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
