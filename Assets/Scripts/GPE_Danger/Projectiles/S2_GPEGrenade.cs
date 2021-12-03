@@ -51,7 +51,7 @@ public class S2_GPEGrenade : S2_GPEProjectile
             if (!_gameO) return;
             S2_Player _player = _gameO.GetComponent<S2_Player>();
             if (!_player) return;
-            Destroy(_player.gameObject);
+            _player.GetDamaged();
         }
         Destroy(this.gameObject);
 
