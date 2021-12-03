@@ -48,7 +48,7 @@ MonoBehaviour:
   meshes:
   - {fileID: 2959734900361409118, guid: 87d38c3cb37e7cc4198d1c4c2bbf2020, type: 3}
   railBoardType: {fileID: 2370028159794804694, guid: 0e6a4a06ad7bd454c8671491f7f6dacb, type: 3}
-  frequency: 10
+  frequency: 50
 --- !u!1 &3753621983531194613
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,5 +95,8 @@ MonoBehaviour:
   points:
   - {x: 1, y: 0, z: 0}
   - {x: 4.496879, y: 0, z: 0}
-  - {x: 8.469485, y: 0, z: 0}
-  - {x: 12.129828, y: 0, z: 0}
+  - {x: 8.469485, y: 0, z: -8.950834}
+  - {x: 12.129828, y: 0, z: -8.950834}
+  - {x: 18.177933, y: 0, z: -8.950834}
+  - {x: 28.041494, y: 0, z: 2.8270416}
+  - {x: 37.079086, y: 0, z: -8.950834}

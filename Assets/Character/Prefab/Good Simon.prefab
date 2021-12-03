@@ -101,6 +101,10 @@ MonoBehaviour:
   rotateSpeed: 50
   coyoteTime: 0.8
   jumpHeight: 2
+  railDetectionRadius: 8
+  railBoardMask:
+    serializedVersion: 2
+    m_Bits: 128
   timer: 0
 --- !u!54 &1450754646390029517
 Rigidbody:

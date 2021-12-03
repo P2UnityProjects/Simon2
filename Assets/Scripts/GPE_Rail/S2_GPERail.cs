@@ -45,7 +45,7 @@ public class S2_GPERail : MonoBehaviour {
 			}
 		}
 	}
-	void Init()
+	public void Init()
     {
 		if (!IsValid) return;
 
@@ -57,4 +57,5 @@ public class S2_GPERail : MonoBehaviour {
 
 		railBoardCopy.SetSpline(spline);
 	}
+	public void SetSplineToBoard() => railBoardCopy.SetSpline(spline);
 }

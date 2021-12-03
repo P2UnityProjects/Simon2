@@ -9,6 +9,10 @@ public class S2_CharacterMovement : MonoBehaviour
 	[SerializeField] protected float rotateSpeed = 50f;
 	[SerializeField]  float coyoteTime = 2f;
 	[SerializeField] protected float jumpHeight = 2f;
+
+	[SerializeField] protected float railDetectionRadius = 8;
+	[SerializeField] protected LayerMask railBoardMask = 0;
+
 	private int jumpCount = 0;
 	[SerializeField] protected float timer = 0;
 	private CharacterController controller;
@@ -26,6 +30,7 @@ public class S2_CharacterMovement : MonoBehaviour
 		//S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_HORIZONTAL, MoveHorizontal);
 		S2_InputManager.Instance.BindAction(S2_ButtonEvent.JUMP,Jump);
 		S2_InputManager.Instance.BindAction(S2_ButtonEvent.SHIELD,Shield);
+		S2_InputManager.Instance.BindAction(S2_ButtonEvent.RAIL,Rail);
 	}
     private void Update()
     {
@@ -37,6 +42,18 @@ public class S2_CharacterMovement : MonoBehaviour
 			timer = 0;
 		}
 
+	}
+
+	void Rail(bool _bool)
+    {
+		if (!_bool) return;
+
+		bool _hasHit = Physics.SphereCast(transform.position, railDetectionRadius, transform.forward, out RaycastHit _hit, railDetectionRadius, railBoardMask);
+
+		if(_hasHit)
+        {
+			transform.SetParent(_hit.transform);
+        }
 	}
 
 	void Shield(bool _bool)
