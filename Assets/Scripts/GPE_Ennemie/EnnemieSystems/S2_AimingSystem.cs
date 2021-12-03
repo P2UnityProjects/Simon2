@@ -4,13 +4,11 @@ using UnityEngine;
 public class S2_AimingSystem : S2_EnnemieSystem
 {
     #region Fields & Properties
-    //public event Action<bool> OnTargetAimed = null; // hided to mask warning
+    public event Action<bool> OnTargetAimed = null, OnTriggerDetectionAnim = null; 
 
     [SerializeField] float aimDetectionRate = .1f, aimRange = 10, aimAngle = 90, aimSpeed = 15;
 	[SerializeField] LayerMask aimingMask = 0;
     Vector3 initForward = Vector3.zero;
-
-    public float AimDetectionRate => aimDetectionRate;
     #endregion
 
     #region Methods
@@ -44,11 +42,11 @@ public class S2_AimingSystem : S2_EnnemieSystem
 
             float _angle = GetAngle(initForward, _target.position - transform.position.normalized);
 
-           // Debug.Log(_angle); //! angle stays at 90°
+            //Debug.Log(_angle); //! angle stays at 90°
 
             if (_angle < aimAngle)
             {
-
+                OnTriggerDetectionAnim?.Invoke(true);
                 owner.SetTarget(_target);
                 AimTarget();
                 owner.ShootingSystem.UpdateShootingStatus(true);
@@ -56,6 +54,7 @@ public class S2_AimingSystem : S2_EnnemieSystem
             }
         }
         owner.SetTarget(null);
+        OnTriggerDetectionAnim?.Invoke(false);
         owner.ShootingSystem.UpdateShootingStatus(false);
     }
     void AimTarget()
