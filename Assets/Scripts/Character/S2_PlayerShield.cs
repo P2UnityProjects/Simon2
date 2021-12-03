@@ -17,6 +17,7 @@ public class S2_PlayerShield : MonoBehaviour
     private void OnDisable()
     {
         currentTime = 0;
+        ScaleUpShield();
     }
 
     void ScaleUpShield()
