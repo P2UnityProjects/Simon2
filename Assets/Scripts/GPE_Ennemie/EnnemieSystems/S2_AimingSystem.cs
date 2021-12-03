@@ -4,7 +4,7 @@ using UnityEngine;
 public class S2_AimingSystem : S2_EnnemieSystem
 {
     #region Fields & Properties
-    public event Action<bool> OnTargetAimed = null, OnTriggerDetectionAnim = null;
+    public event Action<bool> OnTargetAimed = null, OnTriggerDetectionAnim = null; 
 
     [SerializeField] float aimDetectionRate = .1f, aimRange = 10, aimAngle = 90, aimSpeed = 15;
 	[SerializeField] LayerMask aimingMask = 0;
