@@ -4,7 +4,11 @@ using UnityEngine;
 public class S2_AimingSystem : S2_EnnemieSystem
 {
     #region Fields & Properties
+<<<<<<< HEAD
     //public event Action<bool> OnTargetAimed = null; // hided to mask warning
+=======
+    public event Action<bool> OnTargetAimed = null, OnTriggerDetectionAnim = null; 
+>>>>>>> origin/Robinus
 
     [SerializeField] float aimDetectionRate = .1f, aimRange = 10, aimAngle = 90, aimSpeed = 15;
 	[SerializeField] LayerMask aimingMask = 0;
