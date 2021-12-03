@@ -18,6 +18,21 @@ public class S2_MovablePlatformMovement : MonoBehaviour
 
     private void Start() => Init();
     private void Update() => Move();
+    private void OnTriggerEnter(Collider other)
+    {
+        player = other.GetComponent<S2_Player>();
+        if (!player) return;
+        player.transform.SetParent(transform);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        player = other.GetComponent<S2_Player>();
+        if (!player) return;
+        Transform _playerTransform = player.transform;
+        Vector3 _offset = _playerTransform.position;
+        gameObject.transform.DetachChildren();
+        _playerTransform.position = _offset;
+    }
     private void OnDestroy() => OnReachGoal = null;
     private void OnDrawGizmos()
     {
@@ -50,26 +65,4 @@ public class S2_MovablePlatformMovement : MonoBehaviour
             OnReachGoal?.Invoke();
         }
     }
-
-
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        player = other.GetComponent<S2_Player>();
-        if (!player) return;
-        Debug.Log("uwu");
-        player.gameObject.transform.SetParent(gameObject.transform);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        player = other.GetComponent<S2_Player>();
-        if (!player) return;
-        Debug.Log("uwu");
-        Transform _playerTrans = player.transform;
-        Vector3 _offset = _playerTrans.position;
-        Debug.Log(_offset);
-        //_playerTrans.parent = null;
-        gameObject.transform.DetachChildren();
-        player.transform.position = CurrentPosition + _offset;
-    }*/
 }

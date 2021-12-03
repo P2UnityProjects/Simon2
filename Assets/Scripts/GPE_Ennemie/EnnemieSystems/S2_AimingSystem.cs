@@ -4,11 +4,13 @@ using UnityEngine;
 public class S2_AimingSystem : S2_EnnemieSystem
 {
     #region Fields & Properties
-    public event Action<bool> OnTargetAimed = null;
+    //public event Action<bool> OnTargetAimed = null; // hided to mask warning
 
     [SerializeField] float aimDetectionRate = .1f, aimRange = 10, aimAngle = 90, aimSpeed = 15;
 	[SerializeField] LayerMask aimingMask = 0;
     Vector3 initForward = Vector3.zero;
+
+    public float AimDetectionRate => aimDetectionRate;
     #endregion
 
     #region Methods

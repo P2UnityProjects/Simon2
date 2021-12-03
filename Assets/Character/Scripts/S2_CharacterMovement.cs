@@ -7,22 +7,22 @@ public class S2_CharacterMovement : MonoBehaviour
 	[SerializeField] bool canMove = true;
 	[SerializeField] float moveSpeed = 10f, rotateSpeed = 50f, coyoteTime = 2f, jumpHeight = 2f, timer = 0, gravityValue = -9.81f,
 						   xAxis = 0, yAxis = 0;
+	[SerializeField] Camera gameCamera = null;
 	
 	int jumpCount = 0;
 	CharacterController controller = null;
 	Vector3 playerVelocity = Vector3.zero;
 
-	public bool IsValid => controller;
+	public bool IsValid => controller && gameCamera;
 	public CharacterController Controller => controller;
 	public Vector3 Position => transform.position;
+	public Vector3 CameraFWD => gameCamera.transform.forward;
+	public Vector3 CameraRight => gameCamera.transform.right;
 	public Quaternion Rotation => transform.rotation;
 
 	protected virtual void Start()
 	{
-		controller = gameObject.GetComponent<CharacterController>();
-		S2_InputManager.Instance.BindAction(S2_ButtonEvent.JUMP, Jump);
-		S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_VERTICAL, SetXAxis);
-		S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_HORIZONTAL, SetYAxis);
+		Init();
 	}
     private void Update()
     {
@@ -36,10 +36,27 @@ public class S2_CharacterMovement : MonoBehaviour
 		S2_InputManager.Instance.UnBindAction(S2_ButtonEvent.JUMP, Jump);
 	}
 
+	void Init()
+    {
+		controller = gameObject.GetComponent<CharacterController>();
+		S2_InputManager.Instance.BindAction(S2_ButtonEvent.JUMP, Jump);
+		S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_VERTICAL, SetXAxis);
+		S2_InputManager.Instance.BindAxis(S2_AxisEvent.MOVE_HORIZONTAL, SetYAxis);
+		S2_World.Instance.TimerManager.AddTimer(0.01f, InitCamera);
+	}
+	void InitCamera()
+    {
+		if (!gameCamera)
+			gameCamera = S2_World.Instance.CameraManager.GetFirstCamera().GetComponent<Camera>();
+	}
 	void RotatePlayer()
     {
+		if (!IsValid) return;
 		if (xAxis == 0 && yAxis == 0) return;
-		Vector3 _direction = /*Position +*/ new Vector3(yAxis, 0, xAxis);
+		//Vector3 _direction = new Vector3(xAxis * CameraFWD.x, 0, yAxis * CameraRight.z);
+		Vector3 _direction = (xAxis * CameraFWD) + (yAxis * CameraRight);
+		_direction.y = 0;
+		if (_direction == Vector3.zero) return;
 		Quaternion _lookAt = Quaternion.LookRotation(_direction);
 		Quaternion _lookAtRotation = Quaternion.RotateTowards(Rotation, _lookAt, Time.deltaTime * rotateSpeed);
 		transform.rotation = _lookAtRotation;
@@ -54,15 +71,16 @@ public class S2_CharacterMovement : MonoBehaviour
 	}
 	void MakeMoveWithCC()  //CC is for CharacterController
     {
+		if (!IsValid) return;
 		if (controller.isGrounded && playerVelocity.y < 0)
 		{
 			playerVelocity.y = 0f;
 		}
 
-		Vector3 _move = new Vector3(yAxis, 0, xAxis);
 		float _deltaTime = Time.deltaTime;
-
-		controller.Move(_move * _deltaTime * moveSpeed);
+		Vector3 _position = (xAxis * CameraFWD) + (yAxis * CameraRight);
+		_position.y = 0;
+		controller.Move(_position * _deltaTime * moveSpeed);
 		playerVelocity.y += gravityValue * _deltaTime;
 		controller.Move(playerVelocity * _deltaTime);
 	}

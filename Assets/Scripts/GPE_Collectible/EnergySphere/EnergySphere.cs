@@ -2,21 +2,20 @@ using UnityEngine;
 
 public class EnergySphere : S2_Collectible
 {
-    #region Fields&Properties
-
     [SerializeField, Header("EnergySphere - Components :")] ES_Movement movement = null;
-
     [SerializeField, Header("EnergySphere - Settings :")] bool shouldRegister = true;
 
     bool collected = false;
 
     public ES_Movement Movement => movement;
-
     public bool IsValid => IsValidCollectible && movement;
 
-    #endregion
-
-    #region Methods
+    private void OnTriggerEnter(Collider other)
+    {
+        S2_Player _player = other.GetComponent<S2_Player>();
+        if (!_player) return;
+        movement.SetTarget(_player.transform);
+    }
 
     protected override void InitCollectible()
     {
@@ -32,14 +31,4 @@ public class EnergySphere : S2_Collectible
         S2_CollectibleManager.Instance?.Collection();
         Destroy(gameObject, .1f);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        S2_Player _player = other.GetComponent<S2_Player>();
-        if (!_player) return;
-        movement.SetTarget(_player.transform);
-    }
-
-    #endregion
-
 }
