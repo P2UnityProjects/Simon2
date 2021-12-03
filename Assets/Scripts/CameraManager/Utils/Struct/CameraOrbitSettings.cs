@@ -14,10 +14,6 @@ public class CameraOrbitSettings
     public bool SmoothRotation { get => smoothRotation; set => smoothRotation = value; }
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public float RotateSpeed { get => rotateSpeed; set => rotateSpeed = value; }
-    //public float CurrentAngle { get => cameraOrbitOffset.CurrentAngle; set => cameraOrbitOffset.CurrentAngle = value; }
-    //public float GoalAngle { get => cameraOrbitOffset.GoalAngle; set => cameraOrbitOffset.GoalAngle = value; }
-    //public float Rayon { get => cameraOrbitOffset.Rayon; set => cameraOrbitOffset.Rayon = value; }
-   // public float Height { get => cameraOrbitOffset.Height; set => cameraOrbitOffset.Height = value; }
     public Vector3 TargetPosition => target.position;
     public Quaternion TargetRotation => target.rotation;
     public CameraOrbitOffset CameraOrbitOffset => cameraOrbitOffset;

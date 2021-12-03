@@ -53,7 +53,10 @@ public class S2_CharacterMovement : MonoBehaviour
     {
 		if (!IsValid) return;
 		if (xAxis == 0 && yAxis == 0) return;
-		Vector3 _direction = new Vector3(xAxis * CameraFWD.x, 0, yAxis * CameraRight.z);
+		//Vector3 _direction = new Vector3(xAxis * CameraFWD.x, 0, yAxis * CameraRight.z);
+		Vector3 _direction = (xAxis * CameraFWD) + (yAxis * CameraRight);
+		_direction.y = 0;
+		if (_direction == Vector3.zero) return;
 		Quaternion _lookAt = Quaternion.LookRotation(_direction);
 		Quaternion _lookAtRotation = Quaternion.RotateTowards(Rotation, _lookAt, Time.deltaTime * rotateSpeed);
 		transform.rotation = _lookAtRotation;
@@ -75,8 +78,8 @@ public class S2_CharacterMovement : MonoBehaviour
 		}
 
 		float _deltaTime = Time.deltaTime;
-		Vector3 _position = new Vector3(xAxis * CameraFWD.x, 0, yAxis * CameraRight.z);
-
+		Vector3 _position = (xAxis * CameraFWD) + (yAxis * CameraRight);
+		_position.y = 0;
 		controller.Move(_position * _deltaTime * moveSpeed);
 		playerVelocity.y += gravityValue * _deltaTime;
 		controller.Move(playerVelocity * _deltaTime);
