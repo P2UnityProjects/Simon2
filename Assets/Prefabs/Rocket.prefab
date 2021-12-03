@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 3437113056582293333}
   - component: {fileID: 881945511}
   - component: {fileID: 7001003283103083497}
+  - component: {fileID: -5092767096682032927}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -249,6 +250,25 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -0.05}
+--- !u!95 &-5092767096682032927
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664095447781576175}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3dccd3d601b952041827688a04cb7242, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3832275973391352396
 GameObject:
   m_ObjectHideFlags: 0
