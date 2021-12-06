@@ -15,7 +15,6 @@ public struct CameraOffset
         Vector3 _position = isLocal ? GetLocalOffset(_target) : GetWorldOffset();
         return _position + _target.position;
     }
-
     Vector3 GetLocalOffset(Transform _target)
     {
         return (xOffset * _target.right) + (yOffset * _target.up) + (zOffset * _target.forward);

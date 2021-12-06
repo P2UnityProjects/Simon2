@@ -197,7 +197,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3437113056582293333}
   - component: {fileID: 881945511}
-  - component: {fileID: 4259557863928249421}
+  - component: {fileID: 7001003283103083497}
+  - component: {fileID: -5092767096682032927}
   m_Layer: 7
   m_Name: Rocket
   m_TagString: Untagged
@@ -235,8 +236,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotateSpeed: 1000
---- !u!65 &4259557863928249421
-BoxCollider:
+  isCountered: 0
+--- !u!136 &7001003283103083497
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -245,9 +247,29 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.7, z: 1.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.36
+  m_Height: 1.4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.05}
+--- !u!95 &-5092767096682032927
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664095447781576175}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2489f5121999d804583428ea66904d28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3832275973391352396
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +659,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: af4ab068a84ac7d4b8e19faea5807dcd, type: 3}
+  - {fileID: 5561349426305759274, guid: f70d7af9a15616b4d8e6e14917f13cd2, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -8,6 +8,7 @@ public class S2_World : S2_Singleton<S2_World>
     [SerializeField] S2_TimerManager timerManager = null;
     [SerializeField] S2_Player player = null;
 
+    public bool IsValid => cameraManager && inputManager && timerManager && player;
     public S2_CameraManager CameraManager => cameraManager;
     public S2_InputManager InputManager => inputManager;
     public S2_TimerManager TimerManager => timerManager;
@@ -24,6 +25,5 @@ public class S2_World : S2_Singleton<S2_World>
         cameraManager = GetComponent<S2_CameraManager>();
         inputManager = GetComponent<S2_InputManager>();
         timerManager = GetComponent<S2_TimerManager>();
-
     }
 }

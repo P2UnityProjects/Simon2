@@ -32,11 +32,9 @@ public class S2_CharacterCounter : MonoBehaviour
     }
     void DetectDangerGPE(bool _bool)
     {
-        OnAttack?.Invoke();
         if (!_bool) return;
-
+        OnAttack?.Invoke();
         Collider[] touchtab = Physics.OverlapSphere(Position, shieldRadius, toCounterLayer);
-        if (touchtab.Length == 0) return;
         for (int i = 0; i < touchtab.Length; i++)
         {
             Collider _collider = touchtab[i];
@@ -47,6 +45,7 @@ public class S2_CharacterCounter : MonoBehaviour
     }
     void DetectRocket(Collider _other)
     {
+        Debug.Log("Detected Rocket");
         S2_GPERocket _proj = _other.GetComponent<S2_GPERocket>();
         if (!_proj) return;
         _proj.SetTarget(_proj.GetLauncher().transform);

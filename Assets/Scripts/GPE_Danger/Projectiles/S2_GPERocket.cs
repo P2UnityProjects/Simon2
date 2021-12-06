@@ -36,6 +36,7 @@ public class S2_GPERocket : S2_GPEProjectile
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triger Enter");
         if(!isCountered)
         {
             GameObject _go = other.transform.gameObject;
@@ -45,16 +46,13 @@ public class S2_GPERocket : S2_GPEProjectile
             _player.GetDamaged();
             Destroy(this.gameObject);
         }
-       else if (isCountered)
+        else
         {
             GameObject _go = other.transform.gameObject;
             if (!_go) return;
             S2_GPETurret _turret = _go.GetComponent<S2_GPETurret>();
             if (!_turret) return;
-
-
-            Destroy(_turret.gameObject);
-            Destroy(this.gameObject);
+            Destroy(_go);
         }
     }
 

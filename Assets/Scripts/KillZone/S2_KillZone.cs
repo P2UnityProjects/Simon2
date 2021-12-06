@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class S2_KillZone : MonoBehaviour
 {
-    #region Fields&Properties
-
     [SerializeField, Header("Kill Zone - Components :")] Collider killzone = null;
 
     public bool IsValid => killzone;
-
-    #endregion
-
-    #region Methods
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,12 +12,9 @@ public class S2_KillZone : MonoBehaviour
         if (!_player) return;
         _player.GetDamaged();
     }
-
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red - new Color(0, 0, 0, .8f);
         Gizmos.DrawCube(transform.position, killzone.bounds.size);
     }
-    #endregion
 }
